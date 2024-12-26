@@ -9,13 +9,14 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Dancing Script', cursive;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     background: rgb(6, 29, 82);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
+    box-sizing: border-box;
 }
 
 #countdown {
@@ -72,9 +73,8 @@ body {
 }
 
 .countdown-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: inline-block;
+    margin: 0 10px;
 }
 
 .countdown-number {
@@ -111,7 +111,8 @@ header {
     background-size: cover;
     background-position: 35% center;
     color: #fff;
-    padding: 40px 0; /* Espaciado vertical */
+    padding: 20px;
+    margin: 10px;
     text-align: center;
     animation: fadeIn 1.5s ease-out;
     height: 1400px; /* Altura fija para el encabezado */
@@ -237,13 +238,19 @@ section:hover {
     margin-bottom: auto; /* Asegura que el logo esté en la parte superior */
 }
 
+logo-container img {
+    max-width: 100%;
+    height: auto;
+}
+
 .title-container {
     margin-top: 60px; /* Espaciado superior para bajar los títulos */
 }
 
 footer {
     text-align: center;
-    padding: 10px 0;
+    padding: 20px;
+    margin: 10px;
     background: rgb(6, 29, 82);
     color: #fff;
     position: relative;
@@ -294,6 +301,11 @@ h1.neon {
     margin: 0 20px; /* Espaciado horizontal entre el GIF y el texto */
     animation: fadeIn 1s ease-out forwards; /* Añade la animación */
     animation-delay: 0.5s; /* Retraso para que aparezca después del h1 */
+}
+
+.gif-container img {
+    max-width: 100%;
+    height: auto;
 }
 
 .flotante1{
@@ -361,7 +373,7 @@ h1.neon {
 
 .invitacion-bg {
     background-image: url('./img/panel_invitacion.png'); /* Ruta a la imagen de fondo */
-    background-size: contain; /* Ajustar la imagen para que cubra toda la sección */
+    background-size: cover; /* Ajustar la imagen para que cubra toda la sección */
     background-repeat: no-repeat; /* Evitar que la imagen se repita */
     background-position: center;
     padding: 40px;
@@ -372,15 +384,23 @@ h1.neon {
     flex-direction: column;
     justify-content: center; /* Centra el contenido verticalmente */
     align-items: center; /* Centra el contenido horizontalmente */
-    min-height: 200vh; /* Altura mínima de la sección */
+    min-height: 150vh; /* Altura mínima de la sección */
     width: 100%; /* Hacer la sección más ancha */
     margin: 0 auto; /* Centrar la sección horizontalmente */
+    box-sizing: border-box; /* Incluir padding y border en el tamaño total */
+}
+
+.invitacion-header, .invitacion-text, .invitacion-text-bold, .ubicacion-container, .personas-container, .imagen-inferior {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box; /* Incluir padding y border en el tamaño total */
+    text-align: center; /* Centrar el contenido */
 }
 
 .birrete-img {
     width: 250px; /* Ajusta el tamaño de la imagen según sea necesario */
     height: auto; /* Mantiene la proporción de la imagen */
-    margin-right: 100px; /* Espaciado entre la imagen y el texto */
+    margin: 0 auto 20px; /* Centrar la imagen y añadir espaciado inferior */
 }
 
 .invitacion-title {
@@ -434,6 +454,7 @@ h1.neon {
 
 .ubicacion-container {
     display: flex;
+    justify-content: center; /* Centrar el contenido horizontalmente */
     align-items: center;
     margin: 10px 0; /* Espaciado superior e inferior */
 }
@@ -442,20 +463,26 @@ h1.neon {
     width: 70px; /* Ajusta el tamaño de la imagen según sea necesario */
     height: auto; /* Mantiene la proporción de la imagen */
     margin-right: 5px; /* Espaciado entre la imagen y el texto */
+    max-width: 100%;
+    height: auto;
 }
 
 .personas-container {
     display: flex;
-    justify-content: space-around; /* Distribuir los elementos horizontalmente */
+    justify-content: center; /* Centrar el contenido horizontalmente */
     align-items: center; /* Centrar los elementos verticalmente */
     margin-top: 20px; /* Espaciado superior */
     gap: 20px; /* Añadir espacio entre los elementos */
+    flex-wrap: wrap;
 }
 
 .persona {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 1 1 30%;
+    text-align: center;
+    letter-spacing: 0; /* Reducir el margen para menos separación */
 }
 
 .persona-icon {
@@ -478,6 +505,8 @@ h1.neon {
 .imagen-inferior-img {
     width: 40%; /* Ajustar el tamaño de la imagen según sea necesario */
     height: auto; /* Mantener la proporción de la imagen */
+    max-width: 100%;
+    height: auto;
 }
 
 .amenizan-bg {
@@ -530,4 +559,46 @@ h1.neon {
     height: auto; /* Mantener la proporción de la imagen */
     border-radius: 5px; /* Bordes redondeados */
     background: none; /* Eliminar el fondo blanco */
+}
+
+@media (max-width: 768px) {
+    header, section, footer {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .countdown-item {
+        margin: 0 5px;
+    }
+
+    .personas-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .persona {
+        flex: 1 1 100%;
+        margin: 5px 0;
+    }
+
+    .invitacion-bg {
+        padding: 20px;
+        background-size: contain; /* Ajustar la imagen para que se contenga dentro de la sección */
+    }
+
+    .birrete-img {
+        width: 150px; /* Ajustar el tamaño de la imagen según sea necesario */
+    }
+
+    .invitacion-title {
+        font-size: 4em; /* Ajustar el tamaño de la fuente según sea necesario */
+    }
+
+    .invitacion-text, .invitacion-text-bold {
+        font-size: 1.2em; /* Ajustar el tamaño de la fuente según sea necesario */
+    }
+
+    .ceremonia-fiesta-text {
+        font-size: 2em; /* Ajustar el tamaño de la fuente según sea necesario */
+    }
 }
